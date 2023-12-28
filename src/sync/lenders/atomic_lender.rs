@@ -4,11 +4,13 @@ use std::{
     sync::{Arc, Condvar, Mutex},
 };
 
+#[derive(Debug)]
 pub struct AtomicLender<Inner> {
     state: Mutex<State<Inner>>,
     condvar: Condvar,
 }
 
+#[derive(Debug)]
 enum State<Inner> {
     Available(Inner),
     Lent,
